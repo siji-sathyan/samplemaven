@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh 'mvn package'
                 archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
-                sh 'ls'
+                
             }
         }
         stage('deploy'){
