@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('git clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/siji-sathyan/mvnpiperepojenkins.git'
+                git branch: 'main', url: 'https://github.com/siji-sathyan/samplemaven.git'
             }
             
         }
