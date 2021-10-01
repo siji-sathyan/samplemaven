@@ -12,15 +12,9 @@ pipeline {
             }
             
         }
-        stage('clean') {
+        stage('clean-install') {
             steps {
-                sh 'mvn clean'
-            }
-        }
-        stage('install') {
-            steps {
-                sh 'mvn install'
-               
+                sh 'mvn clean install'
             }
         }
         stage('package') {
