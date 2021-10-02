@@ -17,6 +17,16 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+        stage('Sonarqube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('sonar'){
+                        sh 'ls'
+                        sh 'mvn sonar:sonar -DskipTests'
+                     }
+                 }
+            }
+        }
         stage('package') {
             steps {
                 sh 'mvn package'
@@ -32,5 +42,6 @@ pipeline {
         }
             }
         }
+        
     }
 }
