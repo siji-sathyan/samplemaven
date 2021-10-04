@@ -34,6 +34,14 @@ pipeline {
                 
             }
         }
+        stage('deploy'){
+            steps{
+                sshagent(['deploy-user']) {
+                    sh "scp -o StrictHostKeyChecking=no /home/jenkins/agent/workspace/siji-training/mavenwebapp/target/samplemaven.war ec2-user@44.192.55.249:/opt/apache-tomcat-8.5.71/webapps"
+                   
+        }
+            }
+        }
         
         
     }
