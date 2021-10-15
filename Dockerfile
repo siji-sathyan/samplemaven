@@ -1,4 +1,8 @@
 FROM openjdk:8
-ADD target/my-samplemaven.war my-samplemaven.war
-ENTRYPOINT ["java", "-war","my-samplemaven.war"]
+ADD target/samplemaven.war samplemaven.war
+COPY target/samplemaven-0.0.2.war samplemaven-0.0.2.war
+COPY pom.xml pom.xml
+COPY maven-entrypoint.sh maven-entrypoint.sh
+RUN chmod +x maven-entrypoint.sh
+ENTRYPOINT ["./maven-entrypoint.sh"]
 EXPOSE 80
