@@ -42,7 +42,7 @@ pipeline {
         stage('Build the image') { 
             steps { 
                 script {
-                    unstash name:"artifact"
+                    
                     docker.withTool('docker') {
                         docker.withRegistry('https://artifactory.dagility.com', 'siji-registry'){
                             docker.build(registry + "samplemaven:latest").push()
